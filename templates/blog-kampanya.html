@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Numara Taşıma Kampanyası | Bağlan360 Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f4f7f9; /* Hafif arka plan */
+      }
+      .blog-card {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .table-mobile {
+        border-left: 5px solid #0d6efd; /* Primary mavi */
+      }
+      .table-mobile thead {
+        background-color: #c9e0ff;
+        color: #0d6efd;
+      }
+      .advantage-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      .advantage-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+      .advantage-list li i {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        font-size: 1.2rem;
+        color: #0d6efd; /* Primary Mavi */
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <header class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+          <i class="bi bi-megaphone-fill me-2 text-primary"></i> Güncel Kampanya
+          Haberleri
+        </h1>
+        <p class="lead text-muted">
+          En avantajlı mobil ve ev interneti kampanyalarını burada takip edin.
+        </p>
+      </header>
+
+      <article class="blog-card p-4 p-md-5 bg-white">
+        <h2 class="mb-3 fw-bolder text-primary">
+          <i class="bi bi-phone-fill me-2"></i> En Kârlı Numara Taşıma Fırsatı:
+          İlk 2 Ay Ücretsiz Mobil Tarife!
+        </h2>
+        <p class="text-muted small border-bottom pb-3 mb-4">
+          Yayın Tarihi: <time datetime="2025-10-01">01 Ekim 2025</time>
+        </p>
+
+        <p class="fs-5">
+          Mobil hattınızı taşımayı mı düşünüyorsunuz? Türk Telekom'un numara
+          taşıyan müşterilerine özel hazırladığı kampanya ile
+          <strong class="text-danger"
+            >ilk 2 ay faturanız tamamen bizden!</strong
+          >
+          Bu kampanya, hem bütçenizi rahatlatıyor hem de kaliteden ödün vermeden
+          bol internetli tarifelere geçmenizi sağlıyor.
+        </p>
+
+        <hr class="my-5" />
+
+        <h3 class="mt-4 fw-bold">
+          <i class="bi bi-box-seam me-2 text-info"></i> GEL TANIŞALIM Tarifesi
+          Detayları
+        </h3>
+        <p class="small text-muted">
+          Bu kampanya, sadece <strong>Numara Taşıma</strong> ile gelen
+          müşterilere sunulmaktadır.
+        </p>
+        <div class="table-responsive mb-4">
+          <table
+            class="table table-bordered table-sm table-mobile align-middle text-center"
+          >
+            <thead class="text-primary">
+              <tr>
+                <th>İnternet</th>
+                <th>Konuşma</th>
+                <th>SMS</th>
+                <th>Normal Ücret (TL)</th>
+                <th>Özel Avantaj</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="text-primary">10 GB</strong></td>
+                <td><strong class="text-success">1000 DK</strong></td>
+                <td><strong class="text-secondary">250 SMS</strong></td>
+                <td><strong class="text-danger">335 TL</strong></td>
+                <td>
+                  <span class="badge bg-danger p-2 fs-6"
+                    ><i class="bi bi-percent me-1"></i> İlk 2 Ay ÜCRETSİZ!</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="mt-5 fw-bold text-dark">
+          <i class="bi bi-patch-check-fill me-2 text-success"></i> Neden Şimdi
+          Geçmelisiniz?
+        </h3>
+        <ul class="advantage-list">
+          <li>
+            <i class="bi bi-wallet2"></i>
+            <strong>Sıfır Fatura Başlangıcı:</strong> İlk iki ay tarife ücreti
+            ve Telsiz Kullanım Ücreti ödemeden hattınızı kullanmaya başlayın.
+          </li>
+          <li>
+            <i class="bi bi-shield-lock-fill"></i>
+            <strong>Aşımsız Tarife Güvencesi:</strong> Tarifenizdeki haklar
+            bittiğinde ek ücret sürprizi yaşamazsınız, sürpriz faturaya son.
+          </li>
+          <li>
+            <i class="bi bi-truck"></i>
+            <strong>Kolay Geçiş:</strong> Eski numaranızı değiştirmeden, sadece
+            kimliğinizle bayilik noktalarımızdan kolayca taşıma işleminizi
+            başlatabilirsiniz.
+          </li>
+        </ul>
+
+        <div class="alert alert-info mt-4">
+          <h4 class="alert-heading fw-bold">
+            <i class="bi bi-lightbulb-fill me-2"></i> Ek Fırsatlar!
+          </h4>
+          <p class="mb-0">
+            Bu kampanya dışında, Numara Taşıma ile gelen müşteriler için 40 GB /
+            295 TL ve 80 GB / 390 TL gibi yüksek kotalı
+            <strong class="text-primary">YENİ HARİKA</strong> tarifelerimiz de
+            mevcuttur! Daha fazla internet kotası arayanlar için harika
+            seçenekler!
+          </p>
+        </div>
+      </article>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yardım Merkezi | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f0f4f8; /* Hafif arka plan */
+      }
+      /* Genel Başlık Stili (Turkuaz tema) */
+      .page-header {
+        color: #17a2b8; /* Turkuaz ton */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #17a2b8;
+        margin-bottom: 40px;
+      }
+      .tool-card {
+        text-align: center;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        height: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        background-color: white; /* Kart içi arka plan */
+      }
+      .tool-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .card-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="page-header text-center">
+        <i class="bi bi-question-circle-fill me-3"></i> Bağlan360 Yardım Merkezi
+      </h1>
+      <p class="lead text-center text-secondary mb-5">
+        İnternet bağlantınızla ilgili sorunları çözmek ve bilgi edinmek için
+        aşağıdaki araçları ve kaynakları kullanabilirsiniz.
+      </p>
+
+      <h3 class="mb-4 text-info fw-bold">
+        <i class="bi bi-gear-fill me-2"></i> Bağlantı Araçları
+      </h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+          <a href="/yardim/hiz-test" class="text-decoration-none">
+            <div class="card tool-card border-primary">
+              <div class="card-body">
+                <i class="bi bi-speedometer2 card-icon text-primary"></i>
+                <h5 class="card-title fw-bold">İnternet Hız Testi</h5>
+                <p class="card-text text-muted">
+                  İndirme ve yükleme hızınızı ölçün.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <a href="/yardim/ping" class="text-decoration-none">
+            <div class="card tool-card border-warning">
+              <div class="card-body">
+                <i class="bi bi-stopwatch-fill card-icon text-warning"></i>
+                <h5 class="card-title fw-bold">Ping Testi</h5>
+                <p class="card-text text-muted">
+                  Bağlantınızın gecikme süresini (ping) kontrol edin.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <a href="/yardim/ip" class="text-decoration-none">
+            <div class="card tool-card border-success">
+              <div class="card-body">
+                <i class="bi bi-globe card-icon text-success"></i>
+                <h5 class="card-title fw-bold">IP Adresim Nedir?</h5>
+                <p class="card-text text-muted">
+                  Genel IP adresinizi ve konumunuzu öğrenin.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <a href="/yardim/imei" class="text-decoration-none">
+            <div class="card tool-card border-secondary">
+              <div class="card-body">
+                <i class="bi bi-phone-fill card-icon text-secondary"></i>
+                <h5 class="card-title fw-bold">IMEI Sorgulama</h5>
+                <p class="card-text text-muted">
+                  Mobil cihazınızın kayıt durumunu kontrol edin.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <h3 class="mb-4 text-info fw-bold">
+        <i class="bi bi-journal-bookmark-fill me-2"></i> Bilgi ve Destek
+        Kaynakları
+      </h3>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <a href="/blog" class="text-decoration-none">
+            <div class="card tool-card border-info">
+              <div class="card-body">
+                <i class="bi bi-patch-question-fill card-icon text-info"></i>
+                <h5 class="card-title fw-bold">Sıkça Sorulanlar (SSS)</h5>
+                <p class="card-text text-muted">
+                  En çok merak edilen soruların yanıtlarını bulun.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a href="/iletisim" class="text-decoration-none">
+            <div class="card tool-card border-danger">
+              <div class="card-body">
+                <i class="bi bi-headset card-icon text-danger"></i>
+                <h5 class="card-title fw-bold">Canlı Destek / İletişim</h5>
+                <p class="card-text text-muted">
+                  Ekibimizle doğrudan iletişime geçin.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="text-decoration-none">
+            <div class="card tool-card border-dark">
+              <div class="card-body">
+                <i class="bi bi-telephone-fill card-icon text-dark"></i>
+                <h5 class="card-title fw-bold">Operatör İletişim</h5>
+                <p class="card-text text-muted">
+                  İlgili operatörlerin destek numaraları.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yeni Hat Başvurusu | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      /* Genel Başlık Stili (Primary/Mavi tema) */
+      .page-header {
+        color: #0d6efd; /* Bootstrap Primary Color */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #0d6efd;
+        margin-bottom: 40px;
+      }
+      /* Yeni eklenen özel stil */
+      .card-package {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-package:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <h1 class="page-header">Yeni Hat Başvurusu & Güncel Tarifeler</h1>
+      <p class="lead">
+        Avantajlı mobil tarifelerimizden birini seçerek yeni hat başvurunuzu
+        kolayca yapabilirsiniz. Tüm mobil hat işlemlerinizde size özel teklifler
+        sunuyoruz.
+      </p>
+
+      <hr class="my-5" />
+
+      <h2 class="h3 mb-3 text-secondary">
+        <i class="bi bi-coin me-2"></i> Yeni Hat Aktivasyon Vergileri
+      </h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="col">
+          <div class="card h-100 bg-light card-package shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-danger fw-bold">
+                Özel İletişim Vergisi (ÖİV)
+              </h5>
+              <p class="card-text fs-4 fw-bold">570 TL</p>
+              <small class="text-muted"
+                >İlk yeni aktivasyon faturasına yansıtılır. (Kaynak: 1.10.2025
+                Tarifeler Sunumu)</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light card-package shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-danger fw-bold">
+                Telsiz Ruhsatname Ücreti
+              </h5>
+              <p class="card-text fs-4 fw-bold">258,04 TL</p>
+              <small class="text-muted"
+                >İlk yeni aktivasyon faturasına yansıtılır. (Kaynak: 1.10.2025
+                Tarifeler Sunumu)</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light card-package shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-danger fw-bold">
+                Telsiz Kullanım Ücreti
+              </h5>
+              <p class="card-text fs-4 fw-bold">21,50 TL/Ay</p>
+              <small class="text-muted"
+                >Aylık olarak faturalara yansıtılır. (Kaynak: 1.10.2025
+                Tarifeler Sunumu)</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="h3 mb-3 text-secondary">
+        <i class="bi bi-phone-vibrate-fill me-2"></i> Yeni Harika Tarifeler
+        (Örnek)
+      </h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 border-primary card-package shadow">
+            <div class="card-header bg-primary text-white text-center">
+              <h4 class="mb-0 fw-bold">Yeni Harika 5GB</h4>
+            </div>
+            <div class="card-body text-center">
+              <div class="fs-1 fw-bold text-primary mb-3">5 GB</div>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                  <i class="bi bi-telephone-fill me-2 text-success"></i>1000 DK
+                  Konuşma
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-chat-text-fill me-2 text-success"></i>1000 SMS
+                </li>
+              </ul>
+              <p class="card-text text-muted">
+                Yeni Aktivasyon, Numara Taşıma ve Faturasızdan Faturalıya geçen
+                müşteriler için. (Kaynak: 1.10.2025 Sunumu)
+              </p>
+              <a href="/basvuru" class="btn btn-primary btn-lg mt-3 shadow-sm"
+                >Hemen Başvur</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 border-success card-package shadow">
+            <div class="card-header bg-success text-white text-center">
+              <h4 class="mb-0 fw-bold">Yeni Harika 10GB</h4>
+            </div>
+            <div class="card-body text-center">
+              <div class="fs-1 fw-bold text-success mb-3">10 GB</div>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                  <i class="bi bi-telephone-fill me-2 text-primary"></i>Sınırsız
+                  Konuşma
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-chat-text-fill me-2 text-primary"></i>Sınırsız
+                  SMS
+                </li>
+              </ul>
+              <p class="card-text text-muted">
+                Yeni Aktivasyon, Numara Taşıma ve Faturasızdan Faturalıya geçen
+                müşteriler için.
+              </p>
+              <a href="/basvuru" class="btn btn-success btn-lg mt-3 shadow-sm"
+                >Hemen Başvur</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

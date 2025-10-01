@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kullanım Şartları | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      /* Başlık için özel stil (secondary/gri ton) */
+      .policy-header {
+        border-bottom: 3px solid #6c757d; /* Bootstrap gri tonu */
+        padding-bottom: 15px;
+        margin-bottom: 40px;
+        color: #6c757d;
+        font-weight: 700;
+      }
+      /* İçeriğin bulunduğu kart */
+      .policy-card {
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        background-color: #ffffff;
+      }
+      .section-title {
+        color: #343a40;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-left: 5px solid #6c757d;
+        padding-left: 15px;
+      }
+      .list-group-item {
+        border-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="policy-header display-5">
+        <i class="bi bi-file-text-fill me-3"></i> Kullanım Şartları ve Koşulları
+      </h1>
+
+      <div class="card policy-card">
+        <div class="card-body p-0">
+          <p class="lead mb-4">
+            Bağlan360 web sitesini ziyaret ederek ve hizmetlerimizden
+            faydalanarak aşağıda belirtilen tüm şartları ve koşulları kabul
+            etmiş sayılırsınız. Bu şartları kabul etmiyorsanız lütfen siteyi
+            kullanmayınız.
+          </p>
+          <hr />
+
+          <h4 class="section-title">1. Kabul ve Kapsam</h4>
+          <p>
+            Bu Kullanım Şartları, Bağlan360 tarafından sunulan tüm hizmetleri,
+            içerikleri ve platformları kapsar. Kullanıcı, siteyi yalnızca yasal
+            amaçlarla ve bu şartlara uygun olarak kullanacağını kabul ve taahhüt
+            eder.
+          </p>
+
+          <h4 class="section-title">2. Hizmetlerin Tanımı</h4>
+          <p>
+            Bağlan360, Türkiye'deki çeşitli telekomünikasyon operatörlerinin
+            (<strong class="text-primary">Vodafone</strong>,
+            <strong class="text-primary">Türk Telekom</strong>,
+            <strong class="text-primary">Turkcell</strong> vb.) ürün ve
+            kampanyalarını karşılaştırmalı olarak sunan bir aracı kurumdur.
+            Başvuru ve altyapı sorgulama işlemleri, kullanıcının bilgileri
+            dahilinde ilgili operatörlere iletilir.
+          </p>
+
+          <h4 class="section-title">3. Kullanıcı Yükümlülükleri</h4>
+          <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">
+              <i class="bi bi-check-circle-fill text-success me-3"></i>
+              <strong>Doğruluk:</strong> Başvuru formlarında sunulan tüm
+              bilgilerin doğru ve güncel olması.
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-check-circle-fill text-success me-3"></i>
+              <strong>Sistem Dürüstlüğü:</strong> Sitenin işleyişini bozacak,
+              aşırı yükleyecek veya manipüle edecek eylemlerden kaçınılması.
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-check-circle-fill text-success me-3"></i>
+              <strong>Yasal Kullanım:</strong> Hizmetlerin yalnızca yasal ve
+              etik amaçlarla kullanılması.
+            </li>
+          </ul>
+
+          <h4 class="section-title">4. Fikri Mülkiyet Hakları</h4>
+          <p>
+            Sitede yer alan tüm içerik, tasarım, metin, grafik ve logolar
+            Bağlan360'a aittir ve uluslararası fikri mülkiyet kanunları ile
+            korunmaktadır. Hiçbir içerik, Bağlan360'ın yazılı izni olmaksızın
+            kopyalanamaz, çoğaltılamaz veya ticari amaçlarla kullanılamaz.
+          </p>
+
+          <h4 class="section-title">5. Şartlarda Yapılan Değişiklikler</h4>
+          <p>
+            Bağlan360, bu Kullanım Şartları'nı dilediği zaman bildirim
+            yapmaksızın tek taraflı olarak değiştirme hakkını saklı tutar.
+            Değişiklikler yayınlandığı anda yürürlüğe girer. Siteyi kullanmaya
+            devam etmeniz, güncellenmiş şartları kabul ettiğiniz anlamına gelir.
+          </p>
+
+          <div
+            class="alert alert-secondary mt-5 d-flex align-items-center"
+            role="alert"
+          >
+            <i class="bi bi-exclamation-circle-fill me-3 fs-5"></i>
+            <div>
+              Bu şartlar hakkında daha fazla bilgi almak veya sorularınızı
+              sormak için lütfen
+              <a href="/iletisim" class="alert-link fw-bold"
+                >İletişim sayfamızı</a
+              >
+              kullanınız.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

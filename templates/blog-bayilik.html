@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Teknoloji Blog | Fiber vs Superbox | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f4f7f9; /* Hafif arka plan */
+      }
+      .blog-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+      }
+      .alert-custom {
+        border-left: 5px solid;
+        border-radius: 8px;
+      }
+      .alert-fiber {
+        border-color: #0d6efd !important;
+        background-color: #e9f2ff;
+      }
+      .alert-superbox {
+        border-color: #dc3545 !important;
+        background-color: #fde8e9;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <header class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+          <i class="bi bi-cpu-fill me-2 text-success"></i> Teknoloji Blog
+        </h1>
+        <p class="lead text-muted">
+          En güncel internet ve iletişim teknolojileri hakkında derinlemesine
+          analizler.
+        </p>
+      </header>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card blog-card">
+            <div class="card-body p-md-5">
+              <h2 class="card-title mb-3 text-dark fw-bolder">
+                <i class="bi bi-speedometer2 me-2 text-danger"></i> Ev
+                İnternetinde Hızın Sınırı Yok: Fiber mi, 4.5G Superbox mı?
+              </h2>
+              <p class="text-muted small border-bottom pb-3 mb-4">
+                Yayın Tarihi:
+                <time datetime="2025-10-01">01 Ekim 2025</time>
+              </p>
+
+              <p class="fs-5">
+                Müşterilerimiz, hızlı ve kesintisiz internet için genellikle iki
+                ana teknoloji arasında kalıyor: **Işık Hızında Fiber** veya
+                **Altyapısız 4.5G Superbox**. Bayilik sistemimizde sunduğumuz
+                kampanyaların arkasındaki teknolojik farkı bilmek, doğru ürünü
+                doğru müşteriye satmanız için kritik öneme sahiptir.
+              </p>
+
+              <hr class="my-5" />
+
+              <h3 class="mt-4 text-primary fw-bold">
+                <i class="bi bi-stars me-2"></i> 1. Geleceğin Hızı: Fiber (1000
+                Mbps)
+              </h3>
+              <p>
+                Fiber internet, veri iletimini bakır kablolar yerine cam ipliği
+                kalınlığındaki fiber optik kablolarla yapar. Bu sayede teorik
+                olarak ışık hızında veri transferi mümkündür.
+              </p>
+              <div class="alert alert-custom alert-fiber p-3">
+                <h5 class="mb-2 text-primary">
+                  <i class="bi bi-lightbulb-fill me-2"></i> Fiberin Anahtar
+                  Avantajı
+                </h5>
+                <p>
+                  Bayilik portföyümüzde öne çıkan **1000 Mbps Fiber**
+                  kampanyaları, aynı anda onlarca cihazın bağlanabileceği ve
+                  4K/8K yayınlar için ideal bir bant genişliği sunar.
+                </p>
+                <p class="mb-0 fw-semibold">
+                  **Teknolojik Üstünlüğü:** Hız ve kararlılıkta şu an için
+                  ulaşılabilecek en üst düzey ev interneti teknolojisidir.
+                </p>
+              </div>
+
+              <h3 class="mt-4 text-danger fw-bold">
+                <i class="bi bi-broadcast-pin me-2"></i> 2. Altyapı Sorununa
+                Çözüm: Superbox
+              </h3>
+              <p>
+                Superbox, evinizin altyapı sorunu olsun ya da olmasın, mobil
+                4.5G şebekesi üzerinden internet sunar. Superbox'ı bu kadar
+                hızlı yapan ise modem teknolojisidir.
+              </p>
+              <div class="alert alert-custom alert-superbox p-3">
+                <h5 class="mb-2 text-danger">
+                  <i class="bi bi-antenna-fill me-2"></i> Cat 12 Modem
+                  Teknolojisi
+                </h5>
+                <p>
+                  Portföyümüzdeki **300 GB ve 1 TB Superbox** teklifleri
+                  genellikle **Cat 12 (Kategori 12)** destekli modemlerle
+                  sunulmaktadır.
+                </p>
+                <p class="mb-0 fw-semibold">
+                  **Cat 12 Modem Ne Demek?** Bu teknoloji, **Taşıyıcı
+                  Birleştirme (Carrier Aggregation)** adı verilen bir yöntemle
+                  birden fazla frekansı aynı anda kullanarak indirme hızını
+                  önemli ölçüde artırır. Fiber'e yakın hızları, kurulum ve kablo
+                  karmaşası olmadan, mobil şebeke üzerinden altyapının olmadığı
+                  yerlere taşır.
+                </p>
+              </div>
+
+              <hr class="my-5" />
+
+              <h3 class="mb-4 text-dark fw-bold text-center">
+                <i class="bi bi-person-workspace me-2 text-success"></i> Bayiler
+                İçin Stratejik Özet
+              </h3>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="card h-100 bg-light border-primary border-3">
+                    <div class="card-body">
+                      <h5 class="card-title text-primary fw-bold">
+                        <i class="bi bi-check-circle-fill me-2"></i> Fiber Satış
+                        Stratejisi
+                      </h5>
+                      <p>
+                        Müşterinin adresi **Fiber altyapıya uygunsa**, **18 Ay
+                        Taahhütlü İlk 3 Ay Ücretsiz** kampanyasını, hız ve
+                        kararlılık vaadiyle satınız.
+                      </p>
+                      <span class="badge bg-primary"
+                        >KRİTER: Sabitlik, Yüksek Hız, Altyapı Uygunluğu</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card h-100 bg-light border-danger border-3">
+                    <div class="card-body">
+                      <h5 class="card-title text-danger fw-bold">
+                        <i class="bi bi-check-circle-fill me-2"></i> Superbox
+                        Satış Stratejisi
+                      </h5>
+                      <p>
+                        Müşterinin adresi **Fiber/VDSL altyapısına uygun
+                        değilse** veya yüksek hızda taşınabilir internet
+                        arıyorsa, **Cat 12 modemli** Superbox'ın **300 GB /
+                        1.000 TL + 12 Ay 50 GB Hediye** avantajını öne
+                        çıkarınız.
+                      </p>
+                      <span class="badge bg-danger"
+                        >KRİTER: Taşınabilirlik, Altyapı Sorunu, Kolay
+                        Kurulum</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

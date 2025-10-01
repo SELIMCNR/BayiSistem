@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Bağlan360 ile Türkiye geneli ev interneti başvurusu. Fiber hızında modemli paketler seni bekliyor!"
+    />
+    <title>Bağlan360 | İnternet Başvuru & Sorgulama Merkezi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+      body {
+        background: #f0f4f8; /* Daha yumuşak bir arka plan */
+      }
+      .section-card {
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: white;
+      }
+      #map {
+        width: 100%;
+        height: 350px;
+        border-radius: 8px;
+        margin-top: 20px;
+        transition: all 0.5s ease;
+        border: 1px solid #dee2e6; /* Haritaya hafif çerçeve */
+      }
+      #map:hover {
+        transform: scale(1.01);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+      /* Form elemanları ve butonlar için daha belirgin focus */
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+      /* Form animasyonları */
+      form .form-control,
+      form .form-select,
+      form button,
+      form textarea {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s forwards cubic-bezier(0.1, 0.7, 1, 0.9);
+      }
+      /* Animasyon gecikmeleri, alanlar alt alta sırayla görünecektir */
+      form > div:nth-child(1) .form-control {
+        animation-delay: 0.2s;
+      }
+      form > div:nth-child(2) .form-control {
+        animation-delay: 0.3s;
+      }
+      form > div:nth-child(3) .form-control {
+        animation-delay: 0.4s;
+      }
+      form > div:nth-child(4) .form-control {
+        animation-delay: 0.5s;
+      }
+      form > div:nth-child(5) .form-select {
+        animation-delay: 0.6s;
+      }
+      form button {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Başvuru butonu için daha çarpıcı stil */
+      .btn-primary-custom {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        padding: 12px 40px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .btn-primary-custom:hover {
+        background-color: #0b5ed7;
+        border-color: #0b5ed7;
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="text-center mb-5 fw-bold text-dark">
+        <i class="bi bi-person-lines-fill text-primary me-2"></i> İnternet
+        Başvuru ve Sorgulama Merkezi
+      </h1>
+
+      <div class="row mb-5">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="section-card">
+            <h3 class="mb-4 fw-bold text-primary">
+              <i class="bi bi-file-earmark-text me-2"></i> Yeni Abonelik Başvuru
+              Formu
+            </h3>
+            <p class="text-secondary mb-4">
+              İstediğiniz paketi seçin ve formu doldurun, uzman ekibimiz en kısa
+              sürede sizi arayacaktır.
+            </p>
+            <form id="applyForm" class="row g-4">
+              <div class="col-md-6">
+                <label for="name" class="form-label"
+                  >Ad Soyad <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  id="name"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label"
+                  >Telefon <span class="text-danger">*</span></label
+                >
+                <input
+                  type="tel"
+                  class="form-control form-control-lg"
+                  id="phone"
+                  placeholder="+905XXXXXXXXX"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label"
+                  >E-posta (Opsiyonel)</label
+                >
+                <input
+                  type="email"
+                  class="form-control form-control-lg"
+                  id="email"
+                />
+              </div>
+              <div class="col-12">
+                <label for="address" class="form-label"
+                  >Başvuru Adresi <span class="text-danger">*</span></label
+                >
+                <textarea
+                  class="form-control form-control-lg"
+                  id="address"
+                  rows="3"
+                  required
+                  placeholder="Açık adresinizi yazınız: Mahalle, Cadde, Bina No vb."
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <label for="package" class="form-label"
+                  >İnternet Paketi Seçin
+                  <span class="text-danger">*</span></label
+                >
+                <select
+                  class="form-select form-select-lg"
+                  id="package"
+                  required
+                >
+                  <option value="">-- Size Uygun Paketi Seçiniz --</option>
+                  <option value="Vodafone Fiber 100 Mbps">
+                    Vodafone Fiber 100 Mbps
+                  </option>
+                  <option value="Türk Telekom VDSL 50 Mbps">
+                    Türk Telekom VDSL 50 Mbps
+                  </option>
+                  <option value="Turkcell Superonline 200 Mbps">
+                    Turkcell Superonline 200 Mbps
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 text-center mt-5">
+                <button type="submit" class="btn btn-primary-custom" disabled>
+                  <i class="bi bi-send-fill me-2"></i> BAŞVURUYU GÖNDER
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="section-card bg-light">
+            <h3 class="mb-4 fw-bold text-success">
+              <i class="bi bi-ethernet me-2"></i> Altyapı Kontrol ve Sorgulama
+            </h3>
+            <p class="text-secondary mb-4">
+              Adresinizdeki mevcut Fiber ve VDSL altyapı hız kapasitelerini
+              sorgulamak için adresi girin veya haritada işaretleyin.
+            </p>
+            <form id="infraForm" class="row g-3">
+              <div class="col-12">
+                <label for="infraAddress" class="form-label fw-bold"
+                  >Adresinizi Girin veya Haritadan Seçin</label
+                >
+                <textarea
+                  class="form-control form-control-lg"
+                  id="infraAddress"
+                  rows="2"
+                  placeholder="Örn: Atatürk Bulvarı No:10, Kahramanmaraş"
+                  required
+                ></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-success btn-lg px-5">
+                  <i class="bi bi-search me-2"></i> ALTYAPI SORGULA
+                </button>
+              </div>
+            </form>
+            <div id="infraResult" class="mt-4"></div>
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+      // Tüm alanların animasyonu bittikten sonra butonu etkinleştir.
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          const submitButton = document.querySelector("#applyForm button");
+          if (submitButton) {
+            submitButton.disabled = false;
+          }
+        }, 1000); // 0.8s animasyon süresinden biraz fazla bekleme
+      });
+
+      // Harita başlat
+      var map = L.map("map").setView([39.9208, 32.8541], 6); // Türkiye merkez
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+        maxZoom: 19,
+      }).addTo(map);
+
+      var marker;
+
+      // Haritaya tıklama ile adresi doldur
+      map.on("click", function (e) {
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+
+        if (marker) map.removeLayer(marker);
+        marker = L.marker([lat, lon]).addTo(map);
+
+        fetch(
+          "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
+            lat +
+            "&lon=" +
+            lon
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data && data.display_name) {
+              document.getElementById("infraAddress").value = data.display_name;
+              marker.bindPopup(data.display_name).openPopup();
+            } else {
+              document.getElementById("infraAddress").value =
+                "Koordinatlar: " + lat.toFixed(5) + ", " + lon.toFixed(5);
+            }
+          });
+      });
+
+      // Başvuru gönderimi
+      document
+        .getElementById("applyForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = {
+            ad: document.getElementById("name").value,
+            telefon: document.getElementById("phone").value,
+            adres: document.getElementById("address").value,
+            email: document.getElementById("email").value,
+            paket: document.getElementById("package").value,
+          };
+
+          const submitButton = document.querySelector("#applyForm button");
+          submitButton.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Gönderiliyor...';
+          submitButton.disabled = true;
+
+          // Simüle edilmiş API çağrısı
+          fetch("/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => {
+              if (!res.ok) throw new Error("API hatası");
+              return res.json();
+            })
+            .then(() => {
+              var modal = new bootstrap.Modal(
+                document.getElementById("successModal")
+              );
+              modal.show();
+              document.getElementById("applyForm").reset();
+              submitButton.innerHTML =
+                '<i class="bi bi-send-fill me-2"></i> BAŞVURUYU GÖNDER';
+              submitButton.disabled = false;
+            })
+            .catch(() => {
+              alert("❌ Başvuru gönderilemedi. Lütfen tekrar deneyin.");
+              submitButton.innerHTML =
+                '<i class="bi bi-send-fill me-2"></i> BAŞVURUYU GÖNDER';
+              submitButton.disabled = false;
+            });
+        });
+
+      // Altyapı sorgusu gönderimi
+      document
+        .getElementById("infraForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const adres = document.getElementById("infraAddress").value;
+          const data = {
+            adres: adres,
+            tarih: new Date().toISOString().slice(0, 10),
+          };
+
+          const sorgulaButton = document.querySelector("#infraForm button");
+          sorgulaButton.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sorgulanıyor...';
+          sorgulaButton.disabled = true;
+
+          // Simüle edilmiş API çağrısı ve sonuç üretme
+          fetch("/infra", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => {
+              if (!res.ok) throw new Error("API hatası");
+              return res.json();
+            })
+            .then((cevap) => {
+              // Simülasyon: Rastgele hız sonuçları üret
+              const fiberSpeed =
+                Math.floor(Math.random() * (500 - 50 + 1)) + 50;
+              const vdslSpeed = Math.floor(Math.random() * (100 - 24 + 1)) + 24;
+
+              document.getElementById("infraResult").innerHTML = `
+                <div class="alert alert-success fw-bold p-4">
+                    <h5 class="alert-heading"><i class="bi bi-check-circle me-2"></i> Adresinizde Altyapı Uygun!</h5>
+                    <hr>
+                    <p class="mb-1"><i class="bi bi-lightning-fill me-2"></i> **Maksimum Fiber Hız:** ${fiberSpeed} Mbps</p>
+                    <p class="mb-1"><i class="bi bi-speedometer me-2"></i> **Maksimum VDSL Hız:** ${vdslSpeed} Mbps</p>
+                    <p class="mb-0 text-muted small">Bu sonuçlar ön bilgi amaçlıdır. Net hız, başvurunuz sonrası teyit edilecektir.</p>
+                </div>
+              `;
+
+              sorgulaButton.innerHTML =
+                '<i class="bi bi-search me-2"></i> YENİDEN SORGULA';
+              sorgulaButton.disabled = false;
+            })
+            .catch(() => {
+              document.getElementById("infraResult").innerHTML = `
+                <div class="alert alert-danger">
+                  ❌ Sorgu gönderilemedi veya API hatası oluştu. Lütfen tekrar deneyin.
+                </div>
+              `;
+              sorgulaButton.innerHTML =
+                '<i class="bi bi-search me-2"></i> ALTYAPI SORGULA';
+              sorgulaButton.disabled = false;
+            });
+        });
+    </script>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center border-success border-3">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title fw-bold">
+              <i class="bi bi-check-circle-fill me-2"></i> Başvurunuz Alındı!
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <i
+              class="bi bi-hand-thumbs-up-fill display-4 text-success mb-3"
+            ></i>
+            <p class="lead">
+              Başvurunuz başarıyla alındı! En kısa sürede, seçtiğiniz paketle
+              ilgili detayları görüşmek için sizinle **telefonla iletişime
+              geçeceğiz**.
+            </p>
+            <p class="text-muted small">Lütfen telefonunuzu açık tutunuz.</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button
+              type="button"
+              class="btn btn-outline-success px-4"
+              data-bs-dismiss="modal"
+            >
+              Tamam
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bayilik Başvurusu | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .card-header.bg-info {
+        background-color: #17a2b8 !important; /* Standart info rengi */
+        color: white !important;
+        font-weight: bold;
+      }
+      .card.shadow-sm {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 10px;
+      }
+      .card.shadow-sm:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <h1 class="text-success mb-4 fw-bold">
+        <i class="bi bi-shop me-2"></i> Bayilik Başvurusu
+      </h1>
+      <p class="lead mb-4">
+        Bağlan360 bayisi olmak için başvurunuzu hemen yapın. Tüm operatörlerin
+        fiber, DSL ve mobil ürünlerini satarak kazançlı bir iş ortağı olun.
+      </p>
+
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+              <i class="bi bi-file-earmark-text me-2"></i> Bayilik Başvuru Formu
+            </div>
+            <div class="card-body">
+              <form id="bayilikBasvuruForm" class="row g-3">
+                <div class="col-md-12">
+                  <label for="adSoyad" class="form-label"
+                    >Adınız Soyadınız</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="adSoyad"
+                    placeholder="Ad Soyad"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="telefon" class="form-label"
+                    >Telefon Numaranız</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefon"
+                    placeholder="5xx xxx xx xx"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="ePosta" class="form-label"
+                    >E-Posta Adresiniz</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="ePosta"
+                    placeholder="ornek@mail.com"
+                    required
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label for="il" class="form-label">Bulunduğunuz İl</label>
+                  <select class="form-select" id="il" required>
+                    <option selected disabled value="">Seçiniz...</option>
+                    <option value="istanbul">İstanbul</option>
+                    <option value="ankara">Ankara</option>
+                    <option value="izmir">İzmir</option>
+                    <option value="diger">Diğer</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <label for="mesaj" class="form-label"
+                    >Ek Bilgiler (Opsiyonel)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="mesaj"
+                    rows="3"
+                    placeholder="Deneyimleriniz veya sorularınız..."
+                  ></textarea>
+                </div>
+                <div class="col-md-12 mt-4">
+                  <button type="submit" class="btn btn-success btn-lg w-100">
+                    <span
+                      class="spinner-border spinner-border-sm me-2 d-none"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <i class="bi bi-send-fill me-2"></i> Başvuruyu Gönder
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-header bg-info text-dark">
+              <i class="bi bi-star-fill me-2"></i> Neden Bağlan360 Bayisi
+              Olmalısınız?
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <i class="bi bi-router-fill me-2 text-info"></i>Tüm
+                  Operatörlerin Ürünlerini Tek Çatı Altında Satma imkanı.
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-currency-dollar me-2 text-info"></i>Yüksek
+                  Komisyon Oranları ve Kazanç Modeli.
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-headset me-2 text-info"></i>7/24 Teknik ve
+                  Satış Desteği.
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-graph-up me-2 text-info"></i>Hızlı ve Kolay
+                  Başvuru Yönetim Paneli.
+                </li>
+                <li class="list-group-item">
+                  <i class="bi bi-person-video me-2 text-info"></i>Sürekli
+                  Eğitim ve Gelişim Programları.
+                </li>
+              </ul>
+              <a href="/bayilik-programi" class="btn btn-outline-info mt-4"
+                >Bayilik Programı Detayları</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center border-success border-3">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title fw-bold">
+              <i class="bi bi-check-circle-fill me-2"></i> Başvurunuz Alındı!
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <i class="bi bi-clipboard-check display-4 text-success mb-3"></i>
+            <p class="lead">
+              Bayilik başvurunuz başarıyla alınmıştır. İş ortağımız olmak için
+              attığınız bu adımdan dolayı teşekkür ederiz.
+            </p>
+            <p class="text-muted small">
+              Uzman ekibimiz en kısa sürede başvurunuzu inceleyip sizinle
+              iletişime geçecektir.
+            </p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button
+              type="button"
+              class="btn btn-outline-success px-4"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("bayilikBasvuruForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitButton = this.querySelector("button[type='submit']");
+          const spinner = submitButton.querySelector(".spinner-border");
+          const successModal = new bootstrap.Modal(
+            document.getElementById("successModal")
+          );
+
+          const data = {
+            adSoyad: document.getElementById("adSoyad").value,
+            telefon: document.getElementById("telefon").value,
+            ePosta: document.getElementById("ePosta").value,
+            il: document.getElementById("il").value,
+            mesaj: document.getElementById("mesaj").value,
+          };
+
+          // Yükleniyor durumunu ayarla
+          submitButton.disabled = true;
+          spinner.classList.remove("d-none");
+
+          // API çağrısı
+          fetch("/submit-bayilik", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => {
+              if (!res.ok) {
+                // Sunucu 200 dönse bile JSON'da success: false kontrolü yapılabilir
+                return res.json().then((err) => Promise.reject(err));
+              }
+              return res.json();
+            })
+            .then((result) => {
+              if (result.success) {
+                // Başarılı durumda Modal göster
+                successModal.show();
+                this.reset();
+              } else {
+                // Sunucu tarafında hata varsa
+                alert(
+                  "❌ Başvuru gönderilemedi: " +
+                    (result.message || "Bilinmeyen Hata")
+                );
+              }
+            })
+            .catch((error) => {
+              // Ağ veya API çağrısı hatası
+              console.error("Fetch Error:", error);
+              alert(
+                "❌ Başvuru gönderilemedi. Sunucuya bağlanılamadı veya işlem başarısız oldu."
+              );
+            })
+            .finally(() => {
+              // Her durumda butonu eski haline getir
+              submitButton.disabled = false;
+              spinner.classList.add("d-none");
+            });
+        });
+    </script>
+  </body>
+</html>

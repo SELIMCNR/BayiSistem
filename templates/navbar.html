@@ -1,0 +1,228 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg sticky-top animate-navbar"
+>
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-4" href="/"
+      ><i class="bi bi-link-45deg me-2"></i> Bağlan360</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"
+            ><i class="bi bi-house-door-fill me-1"></i> Ana Sayfa</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="urunDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-grid-fill me-1"></i> Ürün & Hizmetler
+          </a>
+          <ul class="dropdown-menu shadow">
+            <li>
+              <a class="dropdown-item" href="/kampanyalar"
+                ><i class="bi bi-wifi me-2 text-primary"></i> Ev İnterneti
+                Paketleri</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/basvuru"
+                ><i class="bi bi-diagram-3-fill me-2 text-primary"></i> Fiber
+                Altyapı Sorgulama</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/numara-tasima"
+                ><i class="bi bi-phone-transfer me-2 text-primary"></i> Numara
+                Taşıma</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/yeni-hat"
+                ><i class="bi bi-plus-circle-fill me-2 text-primary"></i> Yeni
+                Hat Başvurusu</a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="/bayilik"
+                ><i class="bi bi-handshake-fill me-2 text-success"></i> Bayilik
+                Başvurusu</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="operDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-globe2 me-1"></i> Operatörler
+          </a>
+          <ul class="dropdown-menu shadow">
+            <li>
+              <a class="dropdown-item" href="/turktelekom"
+                ><i class="bi bi-building-fill me-2 text-info"></i> Türk
+                Telekom</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/turkcell"
+                ><i class="bi bi-phone-fill me-2 text-info"></i> Turkcell
+                Superonline</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/vodafone"
+                ><i class="bi bi-speedometer2 me-2 text-info"></i> Vodafone</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="blogDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-pencil-square me-1"></i> Blog
+          </a>
+          <ul class="dropdown-menu shadow">
+            <li>
+              <a class="dropdown-item" href="/blog/ev-interneti"
+                ><i class="bi bi-book-fill me-2 text-secondary"></i> Ev
+                İnterneti Rehberi</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/blog/teknoloji"
+                ><i class="bi bi-cpu-fill me-2 text-secondary"></i> Teknoloji</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/blog/kampanya"
+                ><i class="bi bi-tags-fill me-2 text-secondary"></i>
+                Kampanyalar</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/blog/bayilik"
+                ><i class="bi bi-people-fill me-2 text-secondary"></i> Bayi
+                Köşesi</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item ms-lg-2">
+          <a
+            class="nav-link btn btn-outline-light px-3 py-1 mt-1 mt-lg-0"
+            href="/iletisim"
+          >
+            <i class="bi bi-headset me-2"></i> Bize Ulaşın
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Menüye hafif bir animasyon ekler */
+  .animate-navbar {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 0.5s forwards;
+  }
+  @keyframes slideDown {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Aktif durumdaki dropdown menü öğesi için özel stil */
+  .dropdown-item.active {
+    background-color: var(--bs-light) !important;
+    color: var(--bs-primary) !important;
+    border-left: 3px solid var(--bs-primary);
+  }
+
+  /* Aktif durumdaki ana menü öğesi (dropdown toggles dahil) */
+  .nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+</style>
+
+<script>
+  // Aktif linkleri belirleme JavaScript'i (mevcut kodunuz)
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname;
+
+    // Tüm linkleri kontrol et
+    document.querySelectorAll(".nav-link, .dropdown-item").forEach((item) => {
+      let itemHref = item.getAttribute("href");
+
+      // Linki href'i yoksa ya da '#' ise atla
+      if (!itemHref || itemHref === "#") {
+        return;
+      }
+
+      // 1. Tam Eşleşme Kontrolü (Örn: /kampanyalar)
+      if (
+        itemHref === currentPath ||
+        (currentPath === "/" && itemHref === "/")
+      ) {
+        item.classList.add("active");
+
+        // Eğer link bir dropdown içerisindeyse, üst menüyü de aktif et
+        let parentDropdown = item.closest(".dropdown-menu");
+        if (parentDropdown) {
+          let parentNav = parentDropdown.previousElementSibling;
+          if (parentNav && parentNav.classList.contains("dropdown-toggle")) {
+            parentNav.classList.add("active");
+          }
+        }
+      }
+
+      // 2. Blog Linkleri için Kategori Eşleşmesi (Örn: /blog/...)
+      // Blog linkleri için, linkin sadece başlangıcı eşleşiyorsa (örn: /blog/), üst menüyü aktif et
+      if (itemHref.startsWith("/blog/") && currentPath.startsWith("/blog/")) {
+        let blogDropdownToggle = document.getElementById("blogDropdown");
+        if (blogDropdownToggle) {
+          blogDropdownToggle.classList.add("active");
+        }
+      }
+    });
+  });
+</script>

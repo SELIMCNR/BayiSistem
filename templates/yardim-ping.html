@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ping Testi ve Gecikme Süresi | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f7f9fc;
+      }
+      /* Genel Başlık Stili (Sarı/Turuncu tema) */
+      .page-header {
+        color: #ffc107; /* Sarı/Turuncu ton */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #ffc107;
+        margin-bottom: 40px;
+      }
+      .test-card {
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: #ffffff;
+      }
+      .ping-display {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ffc107;
+        transition: color 0.5s ease;
+      }
+      .start-button {
+        transition: all 0.3s ease;
+        padding: 15px 40px;
+        font-size: 1.5rem;
+        border-radius: 50px;
+      }
+      .start-button:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="page-header text-center">
+        <i class="bi bi-stopwatch-fill me-3"></i> Ping ve Gecikme Süresi Testi
+      </h1>
+      <p class="lead text-center text-secondary mb-5">
+        İnternet bağlantınızın sunucuya ulaşıp geri dönme süresini (gecikmeyi)
+        ölçerek bağlantı kalitenizi kontrol edin.
+      </p>
+
+      <div class="card test-card text-center">
+        <div class="card-body">
+          <div class="text-muted small mb-3 fw-bold">
+            Ölçülen Gecikme Süresi
+          </div>
+          <div class="ping-display" id="pingResult">--</div>
+          <div class="text-muted mb-4">Milisaniye (ms)</div>
+
+          <hr />
+
+          <button
+            class="btn btn-warning start-button mt-4 text-dark shadow"
+            id="startPingButton"
+          >
+            PING TESTİNİ BAŞLAT
+          </button>
+
+          <div id="testStatus" class="mt-4 fw-bold text-dark"></div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-6 mb-4">
+          <h5 class="text-dark">
+            <i class="bi bi-megaphone-fill me-2 text-warning"></i> Ping Nedir?
+          </h5>
+          <p>
+            **Ping**, cihazınızdan bir sunucuya gönderilen küçük bir veri
+            paketinin gidip gelme süresidir (Round Trip Time). Bu süre ne kadar
+            düşükse, bağlantınız o kadar hızlı yanıt verir. Yüksek ping,
+            özellikle **online oyunlarda** ve canlı yayınlarda donma ve
+            takılmalara neden olur.
+          </p>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <h5 class="text-dark">
+            <i class="bi bi-chat-dots-fill me-2 text-warning"></i> Sonuçlar
+            Nasıl Yorumlanmalı?
+          </h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-light">
+              <span class="badge bg-success me-2">0 - 50 ms:</span>
+              Mükemmel (**Oyun ve yayın için ideal**)
+            </li>
+            <li class="list-group-item bg-light">
+              <span class="badge bg-warning me-2">50 - 100 ms:</span>
+              İyi (Normal kullanım için yeterli)
+            </li>
+            <li class="list-group-item bg-light">
+              <span class="badge bg-danger me-2">100 ms üzeri:</span>
+              Kötü (Gecikmeli, sorun yaşanabilir)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Ping Testi Simülasyonu
+      document
+        .getElementById("startPingButton")
+        .addEventListener("click", startPingTest);
+
+      const statusElement = document.getElementById("testStatus");
+      const buttonElement = document.getElementById("startPingButton");
+      const pingEl = document.getElementById("pingResult");
+
+      function getPingRangeClass(ping) {
+        if (ping <= 50) return "text-success";
+        if (ping <= 100) return "text-warning";
+        return "text-danger";
+      }
+
+      function startPingTest() {
+        pingEl.textContent = "--";
+        // Her test başlangıcında tüm renk sınıflarını kaldır
+        pingEl.classList.remove("text-success", "text-warning", "text-danger");
+
+        buttonElement.disabled = true;
+        buttonElement.textContent = "PING GÖNDERİLİYOR...";
+        statusElement.textContent = "Hedef sunucuya 4 paket gönderiliyor...";
+
+        // 1. Ping ölçümü (Simülasyon)
+        setTimeout(() => {
+          const simulatedPing = Math.floor(Math.random() * (200 - 20 + 1)) + 20; // 20-200ms arası
+
+          // Sonucu göster
+          pingEl.textContent = simulatedPing;
+          // Sonuca göre renk sınıfı ekle
+          pingEl.classList.add(getPingRangeClass(simulatedPing));
+
+          statusElement.innerHTML = `✅ Test tamamlandı! Ortalam: <strong>${simulatedPing} ms</strong>.`;
+          buttonElement.textContent = "YENİDEN TEST ET";
+          buttonElement.disabled = false;
+        }, 3000); // 3 saniye sürecek simülasyon
+      }
+    </script>
+  </body>
+</html>

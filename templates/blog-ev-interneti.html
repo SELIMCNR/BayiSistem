@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ev İnterneti Kampanya Karşılaştırması | Bağlan360 Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f4f7f9; /* Hafif arka plan */
+      }
+      .blog-card {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Yumuşak gölge */
+      }
+      /* Fiber Kampanya Tablo Stili */
+      .table-fiber {
+        border-left: 5px solid #198754; /* Success yeşili */
+      }
+      /* Superbox Kampanya Tablo Stili */
+      .table-superbox {
+        border-left: 5px solid #ffc107; /* Warning sarısı */
+      }
+      .table-fiber thead,
+      .table-fiber tfoot {
+        background-color: #d1e7dd;
+      }
+      .table-superbox thead,
+      .table-superbox tfoot {
+        background-color: #fff3cd;
+      }
+      .feature-summary {
+        border-left: 5px solid #0dcaf0;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #e0f7fa;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <header class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+          <i class="bi bi-house-door-fill me-2 text-primary"></i> Ev İnterneti
+          Blog
+        </h1>
+        <p class="lead text-muted">
+          Ev interneti hakkında ipuçları, rehberler ve güncel haberler.
+        </p>
+      </header>
+
+      <article class="blog-card p-4 p-md-5 bg-white">
+        <h2 class="mb-3 fw-bolder text-success">
+          <i class="bi bi-trophy-fill me-2"></i> Ev İnternetinde Rekabet
+          Kızıştı: Hangi Kampanya Daha Avantajlı?
+        </h2>
+        <p class="text-muted small border-bottom pb-3 mb-4">
+          Yayın Tarihi: <time datetime="2025-10-01">01 Ekim 2025</time>
+        </p>
+
+        <p class="fs-5">
+          Ev interneti seçimi yaparken hem hız hem de fiyat avantajı arayanlar
+          için Ekim 2025 itibarıyla piyasadaki en cazip iki Turkcell Superonline
+          kampanyasını karşılaştırdık. Bu teklifler, farklı kullanıcı tiplerine
+          hitap ediyor.
+        </p>
+
+        <hr class="my-5" />
+
+        <h3 class="mt-4 text-success fw-bold">
+          <i class="bi bi-lightning-charge-fill me-2"></i> 1. Yüksek Hız
+          Arayanlar İçin: İlk 3 Ay Ücretsiz Fiber
+        </h3>
+        <p>
+          Superonline'ın Fiber altyapısında sunulan bu kampanya, yüksek hızlı
+          interneti denemek isteyenler ve taahhüt bozanlara destek arayanlar
+          için idealdir.
+        </p>
+        <div class="table-responsive mb-4">
+          <table
+            class="table table-bordered table-sm table-hover table-fiber align-middle"
+          >
+            <thead class="text-success">
+              <tr>
+                <th>Hız</th>
+                <th>Kalan 15 Ay Ücreti (TL)</th>
+                <th>Cayma Bedeli Karşılama (Gelenlere)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>100 Mbps</strong></td>
+                <td>900 TL</td>
+                <td rowspan="2" class="text-center">
+                  <strong>3.500 TL'ye kadar</strong>
+                  <br />
+                  <span class="badge bg-success"
+                    >Diğer ISS'lerden gelenlere özel</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>1000 Mbps</strong></td>
+                <td>1.200 TL</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">
+                  <i class="bi bi-clock-fill me-1"></i> Taahhüt Süresi: 18 Ay
+                  (İlk 3 Ay Ücretsiz)
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="small text-success fw-semibold">
+          <i class="bi bi-person-fill me-1"></i>
+          <strong>Kimler İçin:</strong> Evinde halihazırda Fiber altyapısı
+          bulunan veya yüksek hızda kararlılık bekleyenler.
+        </p>
+
+        <h3 class="mt-5 text-warning fw-bold">
+          <i class="bi bi-box-seam-fill me-2"></i> 2. Altyapı Sorunu Yaşayanlar
+          İçin: Superbox Tak Çalıştır
+        </h3>
+        <p>
+          Fiber veya VDSL altyapısına ulaşamayan ya da sürekli yer değiştirenler
+          için Superbox, pratik ve güçlü bir mobil internet çözümüdür.
+        </p>
+        <div class="table-responsive mb-4">
+          <table
+            class="table table-bordered table-sm table-hover table-superbox align-middle"
+          >
+            <thead class="text-warning">
+              <tr>
+                <th>Kota</th>
+                <th>Aylık Ücret (TL)</th>
+                <th>Özel Avantaj</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>300 GB</strong></td>
+                <td>1.000 TL</td>
+                <td>
+                  <i class="bi bi-gift-fill me-1 text-danger"></i>
+                  <strong>12 Ay boyunca 50 GB Hediye!</strong>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">
+                  <i class="bi bi-wifi me-1"></i> Modem: Tak-Çalıştır, Cat 12
+                  Modem Teknolojisi
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="small text-warning fw-semibold">
+          <i class="bi bi-geo-alt-fill me-1"></i>
+          <strong>Kimler İçin:</strong> Kurulum gerektirmeyen, taşınabilir ve
+          4.5G hızıyla internet sağlamasını isteyenler.
+        </p>
+
+        <hr class="my-5" />
+
+        <div class="feature-summary mt-4">
+          <h4 class="mb-3 text-info fw-bold">
+            <i class="bi bi-info-circle-fill me-2"></i> Bağlan360'tan Özet
+          </h4>
+          <p class="lead mb-0">
+            Eğer evinizin **altyapısı varsa ve hız odaklıysanız** ilk 3 ayı
+            ücretsiz olan
+            <strong class="text-success">Fiber</strong> kampanyasını,
+            **pratiklik, yer bağımsızlık ve altyapı sorununuz varsa**
+            <strong class="text-warning">Superbox</strong>'ı tercih edin.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

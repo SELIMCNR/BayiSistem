@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiber İnternet Teknolojisi | Bağlan360 Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Hafif arka plan */
+      }
+      .blog-content-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+      .advantage-list .list-group-item {
+        /* Avantaj listesini daha belirgin hale getir */
+        border-left: 4px solid #0dcaf0; /* Info Mavi Çizgi */
+        margin-bottom: 10px;
+        border-radius: 6px;
+        background-color: #f0f8ff; /* Hafif mavi arka plan */
+      }
+      .sidebar-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      /* Sticky-top öğesinin üstten boşluğunu ayarlama */
+      .sticky-top {
+        top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/" class="text-decoration-none">Ana Sayfa</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/blog/ev-interneti" class="text-decoration-none">Blog</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Fiber İnternet
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="text-primary mb-2 fw-bold">
+        <i class="bi bi-lightbulb-fill me-2"></i> Fiber İnternet: Geleceğin Hızı
+      </h1>
+      <p class="text-muted mb-4 pb-3 border-bottom">
+        <i class="bi bi-calendar-date me-1"></i> 1 Ekim 2025 |
+        <i class="bi bi-person-circle me-1"></i> Bağlan360 Ekibi
+      </p>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="p-4 bg-white blog-content-card">
+            <img
+              src="https://placehold.co/800x400/0d6efd/ffffff?text=Fiber+Optik+Teknolojisi"
+              class="img-fluid rounded-3 shadow mb-4"
+              alt="Fiber Optik Kablo Görseli"
+            />
+
+            <p class="fs-5 text-dark">
+              Fiber optik internet, verilerin cam veya plastikten yapılmış ince
+              teller aracılığıyla ışık hızında iletilmesini sağlayan son
+              teknoloji bir iletişim biçimidir. Geleneksel bakır kabloların
+              aksine, fiber altyapısı çok daha yüksek hızlar ve stabil bir
+              bağlantı sunar. Bu özellikler, özellikle yoğun online oyun, 4K/8K
+              video akışı ve birden fazla cihazın aynı anda internet kullandığı
+              haneler için kritik öneme sahiptir.
+            </p>
+
+            <h2 class="h4 mt-5 mb-3 text-secondary fw-bold">
+              <i class="bi bi-patch-check-fill me-2 text-success"></i> Fiberin
+              Anahtar Avantajları
+            </h2>
+            <ul class="list-group list-group-flush mb-5 advantage-list">
+              <li class="list-group-item">
+                <i class="bi bi-lightning-charge-fill me-2 text-primary"></i>
+                <strong>Yüksek Hız:</strong> 100 Mbps'den 1000 Mbps'ye (1 Gbps)
+                kadar hızlara ulaşılabilir, bu da veri indirme sürelerini
+                saniyelere indirir.
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-graph-up-arrow me-2 text-primary"></i>
+                <strong>Stabilite:</strong> Sinyal kaybı olmadan uzun mesafelere
+                veri iletebilir, bu da bağlantı kesintilerini minimize eder ve
+                ping değerlerini düşürür.
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-cloud-upload-fill me-2 text-primary"></i>
+                <strong>Simetrik Hızlar:</strong> Bazı fiber kampanyalarda
+                indirme (download) ve yükleme (upload) hızları eşit olabilir
+                (100/100 Mbps gibi), bu da evden çalışanlar, içerik üreticileri
+                ve büyük dosya gönderenler için büyük bir avantajdır.
+              </li>
+            </ul>
+
+            <h2 class="h4 mt-5 mb-3 text-secondary fw-bold">
+              <i class="bi bi-geo-alt-fill me-2 text-danger"></i> Altyapı
+              Sorgulama Neden Önemli?
+            </h2>
+            <p>
+              Türkiye'deki altyapı çalışmaları sürekli ilerlese de, fiber
+              hizmeti henüz her adrese ulaşmamıştır.
+              <strong>Türk Telekom</strong> ve
+              <strong>Turkcell Superonline</strong> gibi operatörler farklı
+              bölgelerde altyapı kurdukları için, adresinizde hangi fiberin
+              olduğunu öğrenmek için mutlaka altyapı sorgulaması yapmanız
+              gerekir.
+            </p>
+            <div
+              class="alert alert-info border-info border-3 border-start rounded-3 shadow-sm"
+            >
+              <p class="mb-0">
+                <i class="bi bi-arrow-right-circle-fill me-2"></i>
+                Bağlan360 üzerinden tek tıkla tüm operatörlerin altyapısını
+                sorgulayarak size en uygun fiber paketine anında
+                başvurabilirsiniz.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div
+            class="card bg-white shadow-sm sidebar-card sticky-top"
+            style="top: 25px"
+          >
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold border-bottom pb-2">
+                <i class="bi bi-journal-text me-2"></i> Diğer Blog Konuları
+              </h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-white">
+                  <i class="bi bi-house me-2 text-secondary"></i>
+                  <a
+                    href="/blog/ev-interneti"
+                    class="text-decoration-none text-dark"
+                    >Ev İnterneti Seçim Rehberi</a
+                  >
+                </li>
+                <li class="list-group-item bg-white">
+                  <i class="bi bi-tags me-2 text-secondary"></i>
+                  <a
+                    href="/blog/kampanya"
+                    class="text-decoration-none text-dark"
+                    >Ekim Ayı Kampanya İncelemesi</a
+                  >
+                </li>
+                <li class="list-group-item bg-white">
+                  <i class="bi bi-shop me-2 text-secondary"></i>
+                  <a href="/blog/bayilik" class="text-decoration-none text-dark"
+                    >İnternet Bayiliği Kazançları</a
+                  >
+                </li>
+              </ul>
+              <a href="/basvuru" class="btn btn-primary w-100 mt-4 btn-lg"
+                ><i class="bi bi-search me-2"></i> Hemen Altyapı Sorgula</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

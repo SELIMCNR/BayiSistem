@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kampanyalar | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Hafif arka plan */
+      }
+      .page-header {
+        color: #0d6efd; /* Ana mavi renk */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #0d6efd;
+        margin-bottom: 40px;
+      }
+      .kampanya-header {
+        color: #343a40; /* Koyu gri */
+        font-weight: 600;
+        margin-top: 40px;
+      }
+      .kampanya-card img {
+        width: 45px; /* Logo boyutu biraz büyütüldü */
+        margin-right: 15px;
+      }
+      .table-responsive {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        border-radius: 8px;
+        overflow: hidden; /* Kenar yuvarlaklığı için */
+      }
+      .table thead tr th {
+        font-weight: 700;
+        vertical-align: middle;
+      }
+      .table tbody tr td {
+        vertical-align: middle;
+      }
+      .alert strong {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="page-header display-5">
+        <i class="bi bi-gift-fill me-3"></i> Ekim 2025 Güncel Ev İnterneti
+        Kampanyaları
+      </h1>
+      <p class="lead text-secondary">
+        Operatörlerin en güncel kampanyalarını ve rakip fiyatlarını sizin için
+        karşılaştırdık.
+      </p>
+
+      <h2 class="kampanya-header mt-5">
+        <img
+          src="/static/images/turkcell.png"
+          alt="Turkcell Superonline Logo"
+          class="me-2"
+        />
+        Turkcell Superonline Öne Çıkan Fiber Teklifler (18 Ay)
+      </h2>
+      <div class="alert alert-success d-flex align-items-center">
+        <i class="bi bi-cash-stack me-3 fs-4"></i>
+        <div>
+          <strong>Cayma Bedeli Kampanyası:</strong> Sadece Fiber Tekliflerinde
+          **3.500 TL'ye kadar** Diğer ISS Cayma Bedeli Karşılanır.
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr class="table-success">
+              <th><i class="bi bi-download me-2"></i> Hız (Mbps)</th>
+              <th><i class="bi bi-upload me-2"></i> Upload (Mbps)</th>
+              <th><i class="bi bi-calendar-check me-2"></i> İlk 3 Ay Ücreti</th>
+              <th>
+                <i class="bi bi-currency-dollar me-2"></i> Kalan 15 Ay Ücreti
+                (TL)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>100 Mbps</td>
+              <td>20 Mbps</td>
+              <td><span class="badge bg-success">Ücretsiz</span></td>
+              <td>900 TL</td>
+            </tr>
+            <tr>
+              <td>500 Mbps</td>
+              <td>50 Mbps</td>
+              <td><span class="badge bg-success">Ücretsiz</span></td>
+              <td>1.150 TL</td>
+            </tr>
+            <tr>
+              <td>1000 Mbps</td>
+              <td>50 Mbps</td>
+              <td><span class="badge bg-success">Ücretsiz</span></td>
+              <td>1.200 TL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="kampanya-header mt-5">
+        <img
+          src="/static/images/turkcell.png"
+          alt="Superbox Logo"
+          class="me-2"
+        />
+        SUPERBOX Kotalı Teklifler (12 Ay Taahhüt)
+      </h2>
+      <div class="alert alert-warning d-flex align-items-center">
+        <i class="bi bi-patch-check-fill me-3 fs-4"></i>
+        <div>
+          <strong>Özel Not:</strong> 100GB ve 300GB Tekliflerde **12 AY BOYUNCA
+          50 GB Hediye**!
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr class="table-warning">
+              <th><i class="bi bi-hdd-fill me-2"></i> Kota</th>
+              <th><i class="bi bi-router me-2"></i> Modem Tipi</th>
+              <th><i class="bi bi-tag-fill me-2"></i> Aylık Ücret (TL)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>100 GB</td>
+              <td>Cat 6</td>
+              <td class="fw-bold text-danger">690 TL</td>
+            </tr>
+            <tr>
+              <td>300 GB</td>
+              <td>Cat 12</td>
+              <td class="fw-bold text-danger">1.000 TL</td>
+            </tr>
+            <tr>
+              <td>1 TB</td>
+              <td>Cat 12</td>
+              <td class="fw-bold text-danger">1.700 TL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="kampanya-header mt-5">
+        <img
+          src="/static/images/turktelekom.png"
+          alt="Türk Telekom Logo"
+          class="me-2"
+        />
+        Türk Telekom Mobil Yeni Müşteri Fırsatları
+      </h2>
+      <div class="alert alert-primary d-flex align-items-center">
+        <i class="bi bi-phone-fill me-3 fs-4"></i>
+        <div>
+          <p class="mb-1">
+            <strong>YENİ HARİKA:</strong> 40 GB, 1000 DK, 250 SMS -
+            <span class="fw-bolder text-dark fs-5">295 TL</span> (Yeni
+            Aktivasyon, Numara Taşıma vb.)
+          </p>
+          <p class="mb-0">
+            <strong>YENİ SÜPER:</strong> 20 GB, 1000 DK, 250 SMS -
+            <span class="fw-bolder text-dark fs-5">305 TL</span> (Yeni
+            Aktivasyon, Numara Taşıma)
+          </p>
+        </div>
+      </div>
+
+      <h2 class="kampanya-header mt-5">
+        <i class="bi bi-bar-chart-line-fill me-2 text-info"></i> Ev İnterneti
+        Rakip Fiyat Karşılaştırması (Ekim '25)
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr class="table-info">
+              <th><i class="bi bi-building-fill me-2"></i> ISS</th>
+              <th><i class="bi bi-speedometer2 me-2"></i> Hız</th>
+              <th><i class="bi bi-clock-history me-2"></i> Taahhüt</th>
+              <th><i class="bi bi-cash-coin me-2"></i> Fiyat Notu/Ort. (TL)</th>
+              <th><i class="bi bi-info-circle-fill me-2"></i> Ek Bilgi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TURKNET</td>
+              <td>1000 Mbps'e kadar</td>
+              <td><span class="badge bg-secondary">Taahhütsüz</span></td>
+              <td class="fw-bold">700 TL (Ortalama 560 TL)</td>
+              <td>İlk 15 aylık ortalama fiyat 560 TL'dir. Sonrası 700 TL.</td>
+            </tr>
+            <tr>
+              <td>TÜRK TELEKOM (TTFİBER)</td>
+              <td>100 Mbps</td>
+              <td>24 Ay</td>
+              <td class="fw-bold">540 TL</td>
+              <td>Sabit Fiyat</td>
+            </tr>
+            <tr>
+              <td>VODAFONE</td>
+              <td>100 Mbps</td>
+              <td>12 Ay</td>
+              <td class="fw-bold">700 TL</td>
+              <td>VDF Faturalı müşteriler için 90 TL indirimli.</td>
+            </tr>
+            <tr>
+              <td>KABLO (TÜRKSAT)</td>
+              <td>25 Mbps</td>
+              <td>24 Ay</td>
+              <td class="fw-bold">690 TL</td>
+              <td>
+                Fiyata ek 50 TL x 24 Ay kurulum ve aktivasyon ücreti alınır.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

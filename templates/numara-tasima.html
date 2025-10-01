@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Numara Taşıma | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .page-header {
+        color: #0d6efd; /* Ana mavi renk */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #0d6efd;
+        margin-bottom: 40px;
+      }
+      .tariff-header {
+        color: #343a40;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 25px;
+      }
+      .table thead th {
+        vertical-align: middle;
+        font-weight: 700;
+      }
+      .table-responsive {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="page-header display-5">
+        <i class="bi bi-phone-transfer me-3"></i> Numara Taşıma Fırsatları
+      </h1>
+      <p class="lead text-secondary">
+        Mevcut hattınızı kolayca taşıyın, **Türk Telekom'un** numara taşıma
+        müşterilerine özel avantajlı tarifelerinden yararlanın.
+      </p>
+
+      <h2 class="tariff-header">
+        <i class="bi bi-list-stars me-2 text-primary"></i> Türk Telekom'da
+        Numara Taşıma Avantajları (12 Ay Taahhüt)
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th><i class="bi bi-person-badge-fill me-2"></i> Tarife Adı</th>
+              <th><i class="bi bi-globe me-2"></i> İnternet</th>
+              <th><i class="bi bi-telephone-fill me-2"></i> Konuşma</th>
+              <th><i class="bi bi-chat-text-fill me-2"></i> SMS</th>
+              <th><i class="bi bi-tag-fill me-2"></i> Aylık Ücret (TL)</th>
+              <th><i class="bi bi-star-fill me-2"></i> Özel Avantaj</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GEL TANIŞALIM</td>
+              <td>10 GB</td>
+              <td>1000 DK</td>
+              <td>250 SMS</td>
+              <td class="fw-bold text-primary">335 TL</td>
+              <td>
+                <span class="badge bg-success py-2"
+                  ><i class="bi bi-patch-check-fill me-1"></i> İlk 2 Fatura
+                  Dönemi ÜCRETSİZ</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>YENİ HARİKA</td>
+              <td>40 GB</td>
+              <td>1000 DK</td>
+              <td>250 SMS</td>
+              <td class="fw-bold text-primary">295 TL</td>
+              <td>e-Dergi Sınırsız İnternet, Aşım Yok</td>
+            </tr>
+            <tr>
+              <td>YENİ HARİKA</td>
+              <td>80 GB</td>
+              <td>1000 DK</td>
+              <td>250 SMS</td>
+              <td class="fw-bold text-primary">390 TL</td>
+              <td>e-Dergi Sınırsız İnternet, Aşım Yok</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="tariff-header mt-5">
+        <i class="bi bi-exclamation-triangle-fill me-2 text-warning"></i> Önemli
+        Vergiler ve Ücretler
+      </h2>
+      <div class="alert alert-secondary d-flex align-items-center" role="alert">
+        <i class="bi bi-info-circle-fill me-3 fs-4 text-dark"></i>
+        <div>
+          <strong class="text-dark">Bilgilendirme:</strong> Numara taşıma
+          işlemlerinde T.C. yasal zorunlulukları gereği tek seferlik veya
+          taksitli olarak tahsil edilen güncel vergiler:
+          <ul class="mt-2 mb-0">
+            <li>
+              **Özel İletişim Vergisi (ÖİV):**
+              <span class="fw-bold text-danger">570 TL</span>
+            </li>
+            <li>
+              **Telsiz Ruhsatname Ücreti:**
+              <span class="fw-bold text-danger">258,04 TL</span>
+            </li>
+            <li>
+              **Telsiz Kullanım Ücreti:** 258,04 TL (12 Ay boyunca
+              <span class="fw-bold">90,50 TL/ay</span> taksit imkanı)
+            </li>
+            <li>
+              **SIM Kart Değişim Ücreti:**
+              <span class="fw-bold">49 TL</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

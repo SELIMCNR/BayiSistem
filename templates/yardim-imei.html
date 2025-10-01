@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IMEI Sorgulama | Bağlan360</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f7f9fc;
+      }
+      /* Genel Başlık Stili (Mor tema) */
+      .page-header {
+        color: #4b0082; /* Koyu Mor/İndigo */
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #4b0082;
+        margin-bottom: 40px;
+      }
+      .imei-card {
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        transition: transform 0.3s ease;
+      }
+      .imei-card:hover {
+        transform: translateY(-2px);
+      }
+      .imei-result-box {
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 1.25rem;
+        font-weight: 600;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        transition: all 0.5s ease;
+      }
+      /* Custom form focus color to match the theme */
+      .form-control:focus {
+        border-color: #4b0082;
+        box-shadow: 0 0 0 0.25rem rgba(75, 0, 130, 0.25);
+      }
+      /* Custom button style to match the theme */
+      .btn-primary {
+        background-color: #4b0082 !important;
+        border-color: #4b0082 !important;
+      }
+      .btn-primary:hover {
+        background-color: #5c00a8 !important;
+        border-color: #5c00a8 !important;
+      }
+      /* Yükleniyor animasyonu */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .spin {
+        animation: spin 1s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container my-5">
+      <h1 class="page-header">
+        <i class="bi bi-phone-fill me-3"></i> IMEI Sorgulama Merkezi
+      </h1>
+      <p class="lead text-secondary mb-4">
+        Cihazınızın yasal olarak kayıtlı olup olmadığını kontrol ederek güvenli
+        bir alışveriş yapın.
+      </p>
+
+      <div class="row">
+        <div class="col-lg-7 mb-4">
+          <div class="card imei-card">
+            <div class="card-body">
+              <h5 class="card-title mb-3 text-dark">
+                <i class="bi bi-hash me-2"></i> IMEI Numarasını Giriniz
+              </h5>
+              <form id="imeiForm">
+                <div class="mb-3">
+                  <label for="imeiInput" class="form-label"
+                    >IMEI Numarası (15 Hane)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    id="imeiInput"
+                    placeholder="Örn: 359160000000000"
+                    maxlength="15"
+                    pattern="[0-9]{15}"
+                    required
+                  />
+                  <div class="form-text">
+                    IMEI numaranızı bulmak için telefonunuzdan **\*#06\#**
+                    tuşlayabilirsiniz.
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg w-100 shadow-sm"
+                  id="sorgulaButton"
+                >
+                  <i class="bi bi-search me-2"></i> Sorgula
+                </button>
+              </form>
+
+              <div
+                class="imei-result-box mt-4 bg-light text-secondary"
+                id="resultBox"
+              >
+                Sonuç burada görünecektir.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 mb-4">
+          <div class="card imei-card bg-light border-0 h-100">
+            <div class="card-body">
+              <h5 class="text-dark mb-3">
+                <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+                Önemli Bilgilendirme
+              </h5>
+              <ul class="list-group list-group-flush bg-light">
+                <li class="list-group-item bg-light">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  IMEI sorgulama, cihazınızın yasal durumunu anlamak için kritik
+                  öneme sahiptir.
+                </li>
+                <li class="list-group-item bg-light">
+                  <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                  Klonlanmış veya Kayıtlı Olmayan cihazlar, BTK kararıyla
+                  belirli bir süre sonra şebekeye kapatılır.
+                </li>
+                <li class="list-group-item bg-light">
+                  <i class="bi bi-link-45deg text-info me-2"></i>
+                  Bu sayfadaki sorgulama simülasyon amaçlıdır. **Resmi ve yasal
+                  sorgulama için mutlaka e-Devlet veya BTK servislerini
+                  kullanınız.**
+                </li>
+              </ul>
+              <a
+                href="https://www.turkiye.gov.tr/imei-sorgulama"
+                target="_blank"
+                class="btn btn-outline-secondary btn-sm mt-3"
+              >
+                e-Devlet IMEI Sorgulama Sayfası
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Test simülasyonu için JavaScript kodu
+      document
+        .getElementById("imeiForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const imeiInput = document.getElementById("imeiInput");
+          const resultBox = document.getElementById("resultBox");
+          const sorgulaButton = document.getElementById("sorgulaButton");
+          const imei = imeiInput.value.trim();
+
+          // Reset and show loading
+          resultBox.className = "imei-result-box mt-4 bg-light text-secondary";
+          resultBox.innerHTML =
+            '<i class="bi bi-arrow-clockwise me-2 spin"></i> Sorgulanıyor...';
+          sorgulaButton.disabled = true;
+          sorgulaButton.innerHTML =
+            '<i class="bi bi-hourglass-split me-2"></i> Bekleyiniz...';
+
+          // Simple validation
+          if (imei.length !== 15 || !/^\d{15}$/.test(imei)) {
+            resultBox.className = "imei-result-box mt-4 bg-danger text-white";
+            resultBox.innerHTML =
+              '<i class="bi bi-x-octagon-fill me-2"></i> Hata: Lütfen 15 haneli geçerli bir IMEI girin.';
+            sorgulaButton.disabled = false;
+            sorgulaButton.innerHTML =
+              '<i class="bi bi-search me-2"></i> Sorgula';
+            return;
+          }
+
+          // Simulation logic
+          setTimeout(() => {
+            const outcomes = [
+              {
+                text: "✅ CİHAZ KAYITLIDIR. Yurt Dışından Getirilmiş olup yasal süresi içinde kaydı yapılmıştır.",
+                class: "bg-success text-white",
+              },
+              {
+                text: "⚠️ CİHAZ KAYIT DIŞIDIR. Lütfen e-Devlet üzerinden kontrol ediniz.",
+                class: "bg-warning text-dark",
+              },
+              {
+                text: "❌ CİHAZ KLONLANMIŞTIR. Cihazınız şebeke hizmeti alamayabilir.",
+                class: "bg-danger text-white",
+              },
+            ];
+
+            const randomIndex = Math.floor(Math.random() * outcomes.length);
+            const result = outcomes[randomIndex];
+
+            resultBox.className = "imei-result-box mt-4 " + result.class;
+            resultBox.innerHTML = result.text;
+            sorgulaButton.disabled = false;
+            sorgulaButton.innerHTML =
+              '<i class="bi bi-search me-2"></i> Sorgula';
+          }, 2000); // 2 saniye gecikme
+        });
+    </script>
+  </body>
+</html>
